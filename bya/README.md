@@ -8,3 +8,5 @@ Problem lists
 
 * [13] Graph
     - [x] ALDS1_12_A
+    - [x] ALDS1_12_B
+    - [ ] ALDS1_12_C

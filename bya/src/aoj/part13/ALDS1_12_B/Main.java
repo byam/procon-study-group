@@ -1,4 +1,4 @@
-package aoj.part13.ALDS1_12_A;
+package aoj.part13.ALDS1_12_B;
 
 import java.util.Scanner;
 
@@ -14,20 +14,19 @@ public class Main {
     private static int[][] M = new int[MAX_N][MAX_N];
 
 
-    private static int prim() {
+    private static void dijkstra() {
         // initialize
         int[] color = new int[MAX_N]; // visited or not
         int[] d = new int[MAX_N]; // min edge
-        int[] p = new int[MAX_N]; // MST parent node
 
         for (int i = 0; i < n; i++) {
             color[i] = WHITE;
             d[i] = INF;
-            p[i] = -1;
         }
 
         // start node
         d[0] = 0;
+        color[0] = GRAY;
 
         while (true){
             int u = -1;
@@ -48,11 +47,10 @@ public class Main {
 
             // add new edges
             for (int v = 0; v < n; v++) {
-                if (color[v] != BLACK && M[v][u] != INF){
-                    if (d[v] > M[v][u]) {
-                        d[v] = M[v][u];
+                if (color[v] != BLACK && M[u][v] != INF){
+                    if (d[v] > M[u][v] + d[u]) {
+                        d[v] = M[u][v] + d[u];
                         color[v] = GRAY;
-                        p[v] = u;
                     }
                 }
 
@@ -60,31 +58,35 @@ public class Main {
 
         }
 
-        int sum = 0;
         for (int i = 0; i < n; i++) {
-            if (p[i] != -1)
-                sum += M[p[i]][i];
+            System.out.println(
+                    i + " " + (d[i] == INF ? -1 : d[i])
+            );
         }
 
-        return sum;
     }
 
     private static void input() {
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                int e = scanner.nextInt();
-                if (e == -1)
-                    M[i][j] = INF;
-                else
-                    M[i][j] = e;
+                M[i][j] = INF;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            int u = scanner.nextInt();
+            int k = scanner.nextInt();
+            for (int j = 0; j < k; j++) {
+                M[u][scanner.nextInt()] = scanner.nextInt();
             }
         }
     }
 
     public static void main(String[] args){
         input();
-        System.out.println(prim());
+        dijkstra();
     }
 }
