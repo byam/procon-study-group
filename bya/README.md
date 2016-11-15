@@ -1,12 +1,12 @@
 Problem lists
 
-* [12] Graph
+* [12] Graph 1
     - [x] ALDS1_11_A
     - [x] ALDS1_11_B
     - [x] ALDS1_11_C
     - [x] ALDS1_11_D
 
-* [13] Graph
+* [13] Graph 2
     - [x] ALDS1_12_A
     - [x] ALDS1_12_B
-    - [ ] ALDS1_12_C
+    - [x] ALDS1_12_C
