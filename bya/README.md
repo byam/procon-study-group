@@ -15,3 +15,11 @@ Problem lists
     - [x] ALDS1_12_A
     - [x] ALDS1_12_B
     - [x] ALDS1_12_C
+
+* [14] Advanced Data Structure
+    - [x] [DSL_1_A](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A)
+        - [code](src/aoj/part14/DSL_1_A.java)
+        - Running Time: `O(q lg* n)`
+    - [ ] [DSL_1_A](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A)
+        - [code](src/aoj/part14/DSL_1_A.java)
+        - Running Time: `O()`
